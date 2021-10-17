@@ -1,5 +1,7 @@
+import { IUser } from "../models/IUser";
+
 export interface UserState {
-  users: any[];
+  users: IUser[];
   loading: boolean;
   error: null | string;
 }
@@ -15,7 +17,7 @@ interface FetchUsersAction {
 }
 interface FetchUsersSuccessAction {
   type: UserActionTypes.FETCH_USERS_SUCCESS;
-  payload: any[];
+  payload: IUser[];
 }
 interface FetchUsersErrorAction {
   type: UserActionTypes.FETCH_USERS_ERROR;
