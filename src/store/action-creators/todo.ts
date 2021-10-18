@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
+import { ITodo } from "../../models/ITodo";
 import { TodoAction, TodoActionsType } from "../../types/todo";
 
 export const fetchTodos =
@@ -7,7 +8,7 @@ export const fetchTodos =
   async (dispatch: Dispatch<TodoAction>) => {
     try {
       dispatch({ type: TodoActionsType.FETCH_TODO });
-      const response = await axios.get("https://jsonplaceholder.typicode.com/todos", {
+      const response = await axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos", {
         params: { _page: page, _limit: limit },
       });
       dispatch({ type: TodoActionsType.FETCH_TODO_SUCCESS, payload: response.data });

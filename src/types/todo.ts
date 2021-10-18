@@ -1,5 +1,7 @@
+import { ITodo } from "../models/ITodo";
+
 export interface TodoState {
-  todo: any[];
+  todo: ITodo[];
   loading: boolean;
   error: null | string;
   page: number;
@@ -18,7 +20,7 @@ interface FetchTodoAction {
 }
 interface FetchTodoSuccessAction {
   type: TodoActionsType.FETCH_TODO_SUCCESS;
-  payload: any[];
+  payload: ITodo[];
 }
 interface FetchTodoErrorAction {
   type: TodoActionsType.FETCH_TODO_ERROR;
